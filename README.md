@@ -10,10 +10,7 @@ git clone https://github.com/ataumo/genattest.git
 
 #### Installation des paquets necessaires :
 ```console
-pip3 install pdfrw
-pip3 install reportlab
-pip3 install datetime
-pip3 install getopt
+pip3 install -r requirements.txt
 ```
 
 ## Initialiser
