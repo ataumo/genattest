@@ -5,7 +5,7 @@
 ### Installer le projet
 
 ```console
-git clone https://github.com/ataumo/genattest.git
+git clone https://github.com/ataumo/genattest
 ```
 
 #### Installation des paquets necessaires :
@@ -24,7 +24,7 @@ lastname="Macron"
 birthday="09/05/1972"
 placeofbirth="Paris"
 address="20 rue du Caire"
-zipcode="75666"
+zipcode="75015"
 city="Paris"
 ccity="Paris"
 ```
