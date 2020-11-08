@@ -9,6 +9,8 @@ from reportlab.graphics.shapes import Drawing
 from reportlab.graphics.barcode.qr import QrCodeWidget
 from reportlab.graphics import renderPDF
 from datetime import datetime
+import yaml
+import os
 
 dic_reason={
   "travail": 578,
@@ -31,15 +33,30 @@ hourall = now.strftime("%H%M%S")
 
 
 #id infos
-firstname="Emmanuel"
-lastname="Macron"
-birthday="09/02/1972"
-placeofbirth="Paris"
-address="20 rue de la fouffe"
-zipcode="75666"
-city="Paris"
-#city where you created the file
-ccity="Paris"
+settgins = {}
+useDefault = True
+if os.path.isfile('settings.yaml'):
+    with open("settings.yaml", 'r') as stream:
+        try:
+            settings = yaml.safe_load(stream)
+            useDefault = False
+        except yaml.YAMLError as exc:
+            print(exc)
+if useDefault:
+    settings = {
+        "firstname": "Emmanuel",
+        "lastname": "Macron",
+        "birthday": "09/02/1972",
+        "placeofbirth": "Paris",
+        "address": "20 rue du Caire",
+        "zipcode": 75015,
+        "city": "Paris",
+        "ccity": "Paris"
+    }
+
+# Transforme les clés du dictionnaire en variables
+locals().update(settings)
+            
 
 def usage():
     print("usage : python3 genattest.py -h -t -a -s")
@@ -78,6 +95,9 @@ def run(argv):
 
 
 def get_overlay_canvas() -> io.BytesIO:
+    global zipcode
+    zipcode = str(zipcode)
+
     data = io.BytesIO()
     pdf = canvas.Canvas(data)
     pdf.drawString(x=119, y=696, text=firstname+' '+lastname)

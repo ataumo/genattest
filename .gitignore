@@ -1,4 +1,4 @@
 .DS_Store
 certificate_*.pdf
 env/
-
+settings.yaml
