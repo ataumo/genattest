@@ -15,18 +15,17 @@ pip3 install -r requirements.txt
 
 ## Initialiser
 
-Completer les informations du fichier ``genattest.py``
-
 ### Completer les informations
-```
-firstname="Emmanuel"
-lastname="Macron"
-birthday="09/05/1972"
-placeofbirth="Paris"
-address="20 rue du Caire"
-zipcode="75015"
-city="Paris"
-ccity="Paris"
+Créez le fichier `settings.yaml` à partir de `settings.yaml.example`
+```yaml
+firstname: Emmanuel
+lastname: Macron
+birthday: 09/05/1972
+placeofbirth: Paris
+address: 20 rue du Caire
+zipcode: 75015
+city: Paris
+ccity: Paris
 ```
 
 ### Générer l'attestation 
