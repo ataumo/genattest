@@ -1,17 +1,18 @@
 #!/usr/bin/env python3
 
-import io
-import pdfrw
-import sys
+from datetime import datetime
 import getopt
+import io
+import os
+import pdfrw
 from reportlab.pdfgen import canvas
 from reportlab.graphics.shapes import Drawing
 from reportlab.graphics.barcode.qr import QrCodeWidget
 from reportlab.graphics import renderPDF
-from datetime import datetime
+import sys
 import yaml
-import os
 
+# link with reason and reason position in form
 dic_reason={
   "travail": 578,
   "achats": 533,
@@ -24,6 +25,7 @@ dic_reason={
   "enfants": 211,
 }
 
+# get time
 now = datetime.now()
 date = now.strftime("%d/%m/%Y")
 datefile = now.strftime("%d%m%Y")
@@ -32,7 +34,7 @@ hourh = now.strftime("%Hh%M")
 hourall = now.strftime("%H%M%S")
 
 
-#id infos
+# get id infos
 settgins = {}
 useDefault = True
 if os.path.isfile('settings.yaml'):
@@ -56,8 +58,9 @@ if useDefault:
 
 # Transforme les clés du dictionnaire en variables
 locals().update(settings)
-            
 
+
+# usage function
 def usage():
     print("usage : python3 genattest.py -h -t -a -s")
     print("-h : help")
