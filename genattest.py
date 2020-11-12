@@ -12,6 +12,9 @@ from reportlab.graphics import renderPDF
 import sys
 import yaml
 
+project_path = os.path.dirname(os.path.realpath(__file__))
+print(project_path)
+
 # link with reason and reason position in form
 dic_reason={
   "travail": 578,
@@ -37,8 +40,8 @@ hourall = now.strftime("%H%M%S")
 # get id infos
 settgins = {}
 useDefault = True
-if os.path.isfile('settings.yaml'):
-    with open("settings.yaml", 'r') as stream:
+if os.path.isfile(project_path + '/settings.yaml'):
+    with open(project_path + "/settings.yaml", 'r') as stream:
         try:
             settings = yaml.safe_load(stream)
             useDefault = False
@@ -93,7 +96,7 @@ def run(argv):
             reason="sport_animaux"
 
     canvas_data = get_overlay_canvas()
-    form = merge(canvas_data, template_path='src/certificate.pdf')
+    form = merge(canvas_data, template_path=project_path + '/src/certificate.pdf')
     save(form, filename='certificate_'+datefile+''+hourall+'.pdf')
 
 
