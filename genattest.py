@@ -17,15 +17,15 @@ print(project_path)
 
 # link with reason and reason position in form
 dic_reason={
-  "travail": 578,
-  "achats": 533,
-  "sante": 477,
-  "famille": 435,
-  "handicap": 396,
-  "sport_animaux": 358,
-  "convocation": 295,
-  "missions": 255,
-  "enfants": 211,
+  "travail": 488,
+  "achats": 417,
+  "sante": 347,
+  "famille": 325,
+  "handicap": 291,
+  "sport_animaux": 269,
+  "convocation": 199,
+  "missions": 178,
+  "enfants": 157,
 }
 
 # get time
@@ -106,15 +106,15 @@ def get_overlay_canvas() -> io.BytesIO:
 
     data = io.BytesIO()
     pdf = canvas.Canvas(data)
-    pdf.drawString(x=119, y=696, text=firstname+' '+lastname)
-    pdf.drawString(x=119, y=674, text=birthday)
-    pdf.drawString(x=297, y=674, text=placeofbirth)
-    pdf.drawString(x=133, y=652, text=address+' '+zipcode+' '+city)
-    pdf.drawString(x=78, y=dic_reason[reason], text='X')
+    pdf.drawString(x=107, y=657, text=firstname+' '+lastname)
+    pdf.drawString(x=107, y=627, text=birthday)
+    pdf.drawString(x=240, y=627, text=placeofbirth)
+    pdf.drawString(x=124, y=596, text=address+' '+zipcode+' '+city)
+    pdf.drawString(x=59, y=dic_reason[reason], text='x')
 
-    pdf.drawString(x=105, y=177, text=ccity)
-    pdf.drawString(x=91, y=153, text=date)
-    pdf.drawString(x=264, y=153, text=hour)
+    pdf.drawString(x=93, y=122, text=ccity)
+    pdf.drawString(x=76, y=92, text=date)
+    pdf.drawString(x=246, y=92, text=hour)
 
     #QRCode Zone
     text_QrCode="Cree le: "+date+" a "+hourh+";\n"\
@@ -131,7 +131,7 @@ def get_overlay_canvas() -> io.BytesIO:
     h=b[3]-b[1]
     d = Drawing(92,92,transform=[100./w,0,0,100./h,0,0])
     d.add(qrw)
-    renderPDF.draw(d, pdf, 435, 95)
+    renderPDF.draw(d, pdf, 435, 25)
 
     pdf.showPage()
     d = Drawing(300,300,transform=[340./w,0,0,340./h,0,0])
