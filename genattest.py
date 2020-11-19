@@ -97,7 +97,7 @@ def run(argv):
 
     canvas_data = get_overlay_canvas()
     form = merge(canvas_data, template_path=project_path + '/src/certificate.pdf')
-    save(form, filename='certificate_'+datefile+''+hourall+'.pdf')
+    save(form, filename=project_path + '/merged_certificate.pdf')
 
 
 def get_overlay_canvas() -> io.BytesIO:
