@@ -74,14 +74,17 @@ def usage():
     print("-c : reason 'convocation'")
     print("-m : reason 'missions'")
     print("-e : reason 'enfants'")
+    print("-f : reason 'famille'")
+    print("-H : reason 'handicap'")
 
 
 def run(argv):
     global reason
     reason="sport_animaux"
     try:
-        opts, args = getopt.getopt(argv, "htaSscme", ["help", "travail",\
-        "achats","sante","sport","convoc","missions","enfants"])
+        opts, args = getopt.getopt(argv, "htaSscmefH", ["help", "travail",\
+        "achats","sante","sport","convoc","missions","enfants","famille",\
+        "handicap"])
     except getopt.GetoptError:
         usage()
         sys.exit(2)
@@ -103,6 +106,10 @@ def run(argv):
             reason="missions"
         elif opt in ("-e", "--enfants"):
             reason="enfants"
+        elif opt in ("-f", "--famille"):
+            reason="famille"
+        elif opt in ("-H", "--handicap"):
+            reason="handicap"
 
     canvas_data = get_overlay_canvas()
     form = merge(canvas_data, template_path=project_path + '/src/certificate.pdf')
