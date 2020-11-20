@@ -9,6 +9,7 @@ git clone https://github.com/ataumo/genattest
 ```
 
 #### Installation des paquets necessaires :
+
 ```console
 pip3 install -r requirements.txt
 ```
@@ -16,6 +17,7 @@ pip3 install -r requirements.txt
 ## Initialiser
 
 ### Completer les informations
+
 Créez le fichier `settings.yaml` à partir de `settings.yaml.example`
 ```yaml
 firstname: Emmanuel
@@ -34,6 +36,8 @@ ccity: Paris
 python3 genattest.py
 ```
 
+Le fichier est crée sous le nom `merged_certificate.pdf`.
+
 ## Utilisation
 
 `option` : raison
@@ -46,4 +50,25 @@ python3 genattest.py
 
 ```
 python3 genattest.py -t
+```
+
+# S'envoyer l'attestation sur iPhone depuis macos
+
+Il est possible de s'envoyer l'attestation par iMessage à travers du code `osascript`.
+
+```osascript
+--code inspired by homam/apple-script-send-imessage.sh
+--from https://gist.github.com/homam/0119797f5870d046a362
+on run argv
+	set filename to item 1 of argv
+	set buddyName to item 2 of argv
+	set attach to POSIX file filename
+	tell application "Messages" to send attach to participant buddyName
+end run
+```
+
+Une fois écrit dans `sendmessage.scpt`, vous allez pouvoir utiliser le code comme ceci :
+
+```console
+osascript sendmessage.scpt "<absolute_path>.pdf" <your phone number>
 ```
