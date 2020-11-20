@@ -48,6 +48,10 @@ Le fichier est crée sous le nom `merged_certificate.pdf`.
 
 `-s` : "Déplacements brefs, dans la limite d'une heure quotidienne et dans un rayon maximal d’un kilomètre autour du domicile,  liés à l’activité physique individuelle des personnes, à l’exclusion de toute pratique sportive collective et de toute proximité avec d’autres personnes, soit à la promenade avec les seules personnes regroupées dans un même domicile, soit aux besoins des animaux de compagnie."
 
+`-S` : "Consultations, examens et soins ne pouvant être assurés à distance et l’achat de médicaments."
+
+
+
 ```
 python3 genattest.py -t
 ```
