@@ -52,7 +52,7 @@ Le fichier est crée sous le nom `merged_certificate.pdf`.
 python3 genattest.py -t
 ```
 
-# S'envoyer l'attestation sur iPhone depuis macos
+## S'envoyer l'attestation sur iPhone depuis macos
 
 Il est possible de s'envoyer l'attestation par iMessage à travers du code `osascript`.
 
