@@ -71,14 +71,20 @@ def usage():
     print("-a : reason 'achats'")
     print("-S : reason 'sante'")
     print("-s : reason 'sport & animaux' (to default)")
+    print("-c : reason 'convocation'")
+    print("-m : reason 'missions'")
+    print("-e : reason 'enfants'")
+    print("-f : reason 'famille'")
+    print("-H : reason 'handicap'")
 
 
 def run(argv):
     global reason
     reason="sport_animaux"
     try:
-        opts, args = getopt.getopt(argv, "htaSs", ["help", "travail",\
-        "achats","sante","sport"])
+        opts, args = getopt.getopt(argv, "htaSscmefH", ["help", "travail",\
+        "achats","sante","sport","convoc","missions","enfants","famille",\
+        "handicap"])
     except getopt.GetoptError:
         usage()
         sys.exit(2)
@@ -94,10 +100,20 @@ def run(argv):
             reason="sante"
         elif opt in ("-s", "--room"):
             reason="sport_animaux"
+        elif opt in ("-c", "--convoc"):
+            reason="convocation"
+        elif opt in ("-m", "--missions"):
+            reason="missions"
+        elif opt in ("-e", "--enfants"):
+            reason="enfants"
+        elif opt in ("-f", "--famille"):
+            reason="famille"
+        elif opt in ("-H", "--handicap"):
+            reason="handicap"
 
     canvas_data = get_overlay_canvas()
     form = merge(canvas_data, template_path=project_path + '/src/certificate.pdf')
-    save(form, filename='certificate_'+datefile+''+hourall+'.pdf')
+    save(form, filename=project_path + '/merged_certificate.pdf')
 
 
 def get_overlay_canvas() -> io.BytesIO:
@@ -131,7 +147,7 @@ def get_overlay_canvas() -> io.BytesIO:
     h=b[3]-b[1]
     d = Drawing(92,92,transform=[100./w,0,0,100./h,0,0])
     d.add(qrw)
-    renderPDF.draw(d, pdf, 435, 95)
+    renderPDF.draw(d, pdf, 435, 25)
 
     pdf.showPage()
     d = Drawing(300,300,transform=[340./w,0,0,340./h,0,0])

@@ -1,4 +1,5 @@
 .DS_Store
 certificate_*.pdf
+merged_certificate.pdf
 env/
 settings.yaml
