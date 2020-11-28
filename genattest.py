@@ -13,7 +13,7 @@ import sys
 import yaml
 
 project_path = os.path.dirname(os.path.realpath(__file__))
-print(project_path)
+#print(project_path)
 
 # link with reason and reason position in form
 dic_reason={
